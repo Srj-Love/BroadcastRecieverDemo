@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.srjlove.broadcastdemo">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".MyFirstReciever"
+            android:exported="false">
+            <!-- android:priority= highest priority receiver will run first and then lower one run later-->
+            <intent-filter android:priority="10">
+                <!--// send broadcast implicitly-->
+                <action android:name="my.custom.reciever" />
+                <!--<action android:name="android.intent.action.AIRPLANE_MODE"/>-->
+                <!--<action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>-->
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".MainActivity$MySecondRecieverInner"
+            android:exported="false">
+            <!-- android:priority="23" is highest priority receiver will run second  and then lower one run later-->
+            <intent-filter android:priority="23">
+                <!--// send broadcast implicitly-->
+                <!--<action android:name="my.custom.another.reciever" />-->
+                <action android:name="my.custom.reciever" /> <!--can send same broadcast to all-->
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".MyThirdReciever"
+            android:exported="false">
+            <!-- android:priority="33" is highest priority receiver will run first and then lower one run later-->
+            <intent-filter android:priority="33">
+                <!--// send broadcast implicitly-->
+                <!--<action android:name="my.custom.another.reciever" />-->
+                <action android:name="my.custom.reciever" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
