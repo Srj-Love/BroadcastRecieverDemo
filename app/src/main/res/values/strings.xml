@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Broadcast Demo</string>
+    <string name="broadcast_now">Broadcast Now</string>
+    <string name="my_second_reciever">My Second Receiver</string>
+    <string name="sticky_broadcast">Sticky Broadcast</string>
+    <string name="local_broadcast">Local Broadcast</string>
 </resources>

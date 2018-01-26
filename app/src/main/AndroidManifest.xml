@@ -48,6 +48,7 @@
                 <action android:name="my.custom.reciever" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".MyLocalBroadcast"/>
     </application>
 
 </manifest>
